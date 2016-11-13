@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chepo Mail</title>
+        <link href="chepo.css" type="text/css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="chepo.js"></script>
+    </head>
+    <body>
+        <button id='logout' type=submit>Log out</button> <!--Log out-->
+        <button id='newMail'>Compose New Mail</button> <!--Compose a new maail-->
+        <table id='inbox'> <!--Show the 10 most recent messages-->
+            <tr> <!--columns-->
+                <th>From</th>
+                <th>Subject</th>
+                <th>date Sent</th>
+            </tr>
+            <tbody id=messages>
+                <!--10 most recent e-mails-->
+            </tbody>
+        </table>
+        <!--Create new mail 'frame'. Displayed when the 'Compose
+        New Mail' button is clicked-->
+        <iframe id='compose' src= 'compose.html'></iframe>
+    </body>
+</html>

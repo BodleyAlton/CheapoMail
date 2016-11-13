@@ -2,13 +2,16 @@
 <html>
     <head>
         <title>Log in</title>
+        <link href="chepo.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script type="text/javascript" src="chepo.js"></script>
     </head>
     <body>
-        <h2>Log in form</h2>
+        <h2>User Log in form</h2>
         <form>
-            Userame: <input type="text" name="name" placeholder="e.g xxxxxx"/><br><br>
-            Password: <input type="password" name="password" placeholder="Please Enter your password"/><br><br>
-            <input type="submit" value="Submit"/>
+            Userame: <input type="text" name="name" placeholder="e.g xxxxxx" required/><br><br>
+            Password: <input type="password" name="password" placeholder="Please Enter your password" required/><br><br>
+            <button id='login'  value="submit">Login</button>
         </form>
     </body>
 </html>
