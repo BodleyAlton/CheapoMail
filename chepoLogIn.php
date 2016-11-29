@@ -1,17 +1,32 @@
 <?php
 
-$red=$name;
-
 $host= ('127.0.0.1');
-$dbName=('c9');
+$dbName=('chepomail');
 $dbUsername = ('altonbodley');
 $dbPassword = '';
+$dbport = 3306;
 
-$conn = new PDO("mysql:host=$host;dbName=$dbname",$dbUsername);
-
+$conn = new mysqli($host,$dbUsername, $dbPassword,$dbName,$dbport);
 $name= $_POST['uname'];
-$password = $_POST['pass'];
 
-echo $name;
-echo $password;
-//echo $password;
+$sql = "SELECT username, password FROM users WHERE username = '$name'";
+
+$password = $_POST['pass'];
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        if ($password == $row["password"]){
+            echo true;
+            
+           }
+            else{
+                echo false;
+            }
+        }
+    } 
+
+$conn->close();
+
+
+?>

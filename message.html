@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
+     <head>
         <title>Chepo Mail</title>
         <link href="chepo.css" type="text/css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="chepo.js"></script>
     </head>
-    <body>
+    <body>
+        <h2>Chepo Mail</h2>
         <button id='logout' type=submit>Log out</button> <!--Log out-->
         <button id='newMail'>Compose New Mail</button> <!--Compose a new maail-->
         <table id='inbox'> <!--Show the 10 most recent messages-->
@@ -21,6 +22,19 @@
         </table>
         <!--Create new mail 'frame'. Displayed when the 'Compose
         New Mail' button is clicked-->
-        <iframe id='compose' src= 'compose.html'></iframe>
+        <div id='messagearea'>
+            <div id='#compose-content'>
+                <span class="close">X</span>
+                <h2>Compose Message</h2>
+                <form>
+                    Recipient(s): <input type="text" id= "recp" name="recipient" required/>
+                    <br><br>
+                    Subject: <input type="text" id="sub" name="subject" required/><br><br>
+                    <textarea type="textarea" id= "mess" name="body" placeholder="Compose Message" rows='10' cols='40'></textarea><br>
+                    <input type="submit" value="Send" id="send"/>
+                </form>
+            </div>
+        <!--<iframe id='compose' scr="compose.html"> </iframe>--> 
+        </div>
     </body>
 </html>

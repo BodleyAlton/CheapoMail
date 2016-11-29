@@ -10,11 +10,16 @@
     <body>
         <h2>Compose Message</h2>
         <form>
-            Recipient(s): <input type="text" name="recipient" required/>
-            Subject: <input type="text" name="subject" required/>
-            <label for="body">Body:</label>
-            <textarea type="textarea" name="body" rows='10' cols='40'></textarea>
-            <input type="submit" value="Submit"/>
+            Recipient(s): <input type="text" id= "recp" name="recipient" required/>
+            <br><br>
+            Subject: <input type="text" id="sub" name="subject" required/><br><br>
+            <textarea type="textarea" id= "mess" name="body" placeholder="Compose Message" rows='10' cols='40'></textarea><br>
+            <input type="submit" value="Send" id="sennd"/>
         </form>
     </body>
 </html>
+
+
+
+
+
