@@ -10,6 +10,7 @@
         <h2>Chepo Mail</h2>
         <button id='logout' type=submit>Log out</button> <!--Log out-->
         <button id='newMail'>Compose New Mail</button> <!--Compose a new maail-->
+        <button id='create'>Create User</button>
         <table id='inbox'> <!--Show the 10 most recent messages-->
             <tr> <!--columns-->
                 <th>From</th>
@@ -23,8 +24,8 @@
         <!--Create new mail 'frame'. Displayed when the 'Compose
         New Mail' button is clicked-->
         <div id='messagearea'>
-            <div id='#compose-content'>
-                <span class="close">X</span>
+            <div class='compose-content'>
+                <span class="close">Xclose</span>
                 <h2>Compose Message</h2>
                 <form>
                     Recipient(s): <input type="text" id= "recp" name="recipient" required/>
@@ -34,7 +35,24 @@
                     <input type="submit" value="Send" id="send"/>
                 </form>
             </div>
-        <!--<iframe id='compose' scr="compose.html"> </iframe>--> 
         </div>
+        
+        <div id='composearea'>
+            <div class='compose-content'>
+                <span class="close">Xclose</span>
+                <h2>Fill out the form below to add a new user</h2>
+                <form action='create_user.php' method='POST' name='createUser'id='cuser'>
+                    <label for="firstname">First Name: </label>
+                    <input type="text" id="firstname"name="firstname" placeholder='First Name' required/>
+                    <label for="lastname">Last Name: </label>
+                    <input type="text" id="lastname" name="lastname" placeholder='Last Name' required/>
+                    <label for="username">User Name: </label>
+                    <input type="text" id='username' name="username" placeholder='e.g rubberduck' required/>
+                    <label for="password">Password: </label>
+                    <input type="password" id="password"name="lastname" placeholder='e.g Password1234' required/>
+                    <button id=submit value="Submit">Create User</button>
+                </form>
+            </div>
+        </div>    
     </body>
 </html>

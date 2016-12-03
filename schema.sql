@@ -3,7 +3,8 @@ USE chepomail;
 
 
 
-CREATE TABLE users(User_id INT,
+CREATE TABLE users(
+    User_id INT AUTO_INCREMENT=5,
     firstname VARCHAR(20) NOT NULL,
     lastname VARCHAR(20) NOT NULL,
     username VARCHAR (25) NOT NULL,
@@ -12,11 +13,11 @@ CREATE TABLE users(User_id INT,
 
 
 CREATE TABLE message(
-    message_id INT,
+    message_id INT NOT NULL AUTO_INCREMENT,
     recipient_ids INT,
     user_id INT,
-    subject TEXT,
-    body TEXT,
+    subject VARCHAR(62),
+    body VARCHAR(150),
     date_sent VARCHAR (50)
     );
 
