@@ -5,10 +5,8 @@ $dbName=('chepomail');
 $dbUsername = ('altonbodley');
 $dbPassword = '';
 $dbport = 3306;
-
 // Establish connection to database
 $conn = new mysqli($host,$dbUsername, $dbPassword,$dbName,$dbport);
-
 $fName=$_POST['fname'];
 $lName=$_POST['lname'];
 $uName=$_POST['uname'];

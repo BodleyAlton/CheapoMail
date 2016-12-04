@@ -1,9 +1,11 @@
+var name;
 $(document).ready(function(){
     $('#login').on('click',login);
     $('#newMail').on('click',compose);
-    $('#Submit').on('click', createUser);
+    $('#submit').on('click', createUser);
     $('#send').on('click',savemessage);
     $('#logout').on('click',logout);
+    $('#create').on('click',create);
 });
 
 /*function compose(e){
@@ -18,7 +20,8 @@ $(document).ready(function(){
 function login(e){
     e.preventDefault();
     var url='chepoLogIn.php';
-    var name=$('#name').val();
+    name=$('#name').val();
+    console.log(name+' from login ');
     var password=$('#password').val();
     var dataString='uname='+name+'&pass='+password; //Request which will be made to server
     // $('#head').load('message.html'); 
@@ -48,8 +51,7 @@ function logout(){
     console.log('logout');
 }
 function compose(){
-    var comp = $('#messagearea');
-    console.log(comp)
+      var comp = $('#messagearea');
     var span = document.getElementsByClassName("close")[0];
     span.onclick=function(){
         $('.close').css('display','none');
@@ -59,9 +61,33 @@ function compose(){
     $('.close').css('display','block');
 }
 
+function create(){
+    var comp = $('#composearea');
+    var span = document.getElementsByClassName("close")[1];
+    span.onclick=function(){
+        $('.close').css('display','none');
+        comp.css('display','none');
+    }
+    comp.css('display','Block');
+    $('.close').css('display','block');
+}
 function createUser(e){
      e.preventDefault();
-     console.log('User created');
+     var fName=$('#firstname').val();
+     var lName=$('#lastname').val();
+     var uName=$('#username').val();
+     var pass=$('#password').val();
+     var dataString='fname='+fName+'&lname='+lName+'&uname='+uName+'&pass='+pass;
+     var url= 'create_user.php';
+     $.ajax(url,{
+         type: 'POST',
+         data: dataString
+     }).done(function(resp){
+        alert(resp);
+     }).fail(function(){
+         alert("There was an error creating this user");
+     })
+     
 }
 
 function savemessage(e){
@@ -69,10 +95,10 @@ function savemessage(e){
     var url='message.php';
     var recipient=$('#recp').val();
     var subject=$('#sub').val();
-    var message=$('#mes').val();
-    var name=$('#name').val();
-    var dataString='recc='+recipient+'&subb='+subject +'&mess='+message; //Request which will be made to server
-    $.ajax(url,{
+    var message=$('#mess').val();
+    var dataString='recc='+recipient+'&user='+name+'&subb='+subject +'&mess='+message; //Request which will be made to server
+        recent(recipient,name);
+        $.ajax(url,{
         type: 'POST',
         data: dataString,
     }).done(function (resp){
@@ -80,6 +106,21 @@ function savemessage(e){
             console.log(resp);
 
     }).fail(function(){
-       console.log('FFail'); 
+       alert('There was an eror processing your request'); 
     });
-    }
+    $('#messagearea').css('display','none');
+    $('.close').css('display','none');
+}
+
+function recent(resp,name){
+   var url = 'recent.php';    
+   var dataString = 'recp='+resp+'&name='+name; // Data to be sent to recent.php
+   $.ajax(url,{
+        type: 'POST',
+        data: dataString,
+    }).done(function (resp){
+        console.log(resp);
+    }).fail(function(){
+       alert('There was an eror processing your request'); 
+    });
+}
