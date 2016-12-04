@@ -7,13 +7,20 @@ $dbPassword = '';
 $dbport = 3306;
 // Establish connection to database
 $conn = new mysqli($host,$dbUsername, $dbPassword,$dbName,$dbport);
-$fName=$_POST['fname'];
-$lName=$_POST['lname'];
-$uName=$_POST['uname'];
+$patt = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$^';
+$fName=strip_tags($_POST['fname']);
+$lName=strip_tags($_POST['lname']);
+$uName=strip_tags($_POST['uname']);
 $pswd=$_POST['pass'];
-$sql="INSERT INTO users VALUES(null,'$fName','$lName','$uName','$pswd');";
-if($conn->query($sql)==true){
-    echo 'Record added successfully';
-}else{'New User not created';}
+if (preg_match($patt,$pswd)){ // Checks if password matches pattern
+    //$pass=password_hash($pswd,PASSWORD_BCRYPT); //Encrypted password
+    /*$sql="INSERT INTO users VALUES(null,'$fName','$lName','$uName','$pass');";*/
+    $sql="INSERT INTO users VALUES(null,'$fName','$lName','$uName','$pswd');";
+    if($conn->query($sql)==true){
+        echo 'Record added successfully';
+    }else{'New User not created';}
+}else{
+    echo ('Please enter a valid password');
+}
 $conn->close();
 ?>

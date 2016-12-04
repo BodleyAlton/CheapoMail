@@ -1,24 +1,13 @@
-/*iframe{
-    background-color: pink;
-    width: 500px;
-    height: 450px;
-}*/
-
-#head{
-    width: 500px;
-    height: 450px;
-    
-}
-
-#h2{
-    color: #f50808;
+h2{
+    color: #17202A;
+    font-family: "Arial Black", Gadget, sans-serif;
 }
 
 .error{
-    border-color:#f81d02;
+    border-color:#FF0000;
 }
 h3.error {
-   color: #f81d02; 
+   color: #C0392B; 
 }
 #messagearea{
     display: none; /* Hidden by default */
@@ -68,4 +57,20 @@ h3.error {
     color: #f50808;
     text-decoration: none;
     cursor: pointer;
+}
+
+body{    
+    background-image: url("https://all4desktop.com/data_images/original/4235927-cool-background.jpg");
+    /*background-image: url("http://wallpapercave.com/wp/NfGTsK4.jpg");*/
+    
+ }
+
+#head{
+    margin: auto;
+    width: 30%;
+    height:250px;
+    padding: 60px;
+    background-image: url("https://www.mysmartmove.com/sites/SmartMove/img/slider/secure.jpg");
+    background-position: right;
+    border-radius: 25px;
 }
